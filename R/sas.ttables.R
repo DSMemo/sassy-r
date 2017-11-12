@@ -11,8 +11,8 @@ sas.ttables <- function(dataset,alpha = .05){
   
   ttest <- t.test(dataset,conf.level = (1 - alpha))
   ci <- ttest$conf.int
-  highstddev <- sd(dataset)*sqrt(length(dataset)-1)/qchisq(p = (alpha/2),df = length(dataset)-1)
-  lowstddev <- (sd(dataset)*sqrt(length(dataset)-1)) / qchisq(p = 1- (alpha/2),df = length(dataset)-1)
+  highstddev <- sd(dataset)*(sqrt(length(dataset)-1)/qchisq(p = (alpha/2),df = length(dataset)-1))
+  lowstddev <- (sd(dataset)*(sqrt(length(dataset)-1)) / qchisq(p = 1- (alpha/2),df = length(dataset)-1))
   
   summstat <- data.frame(N = length(dataset),
                    Mean = mean(dataset),
